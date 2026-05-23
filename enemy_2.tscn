@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://iyblt7u7uoca"]
+
+[ext_resource type="PackedScene" uid="uid://b7iivfcoo6h6c" path="res://enemy.tscn" id="1_867ty"]
+[ext_resource type="Script" uid="uid://ba5w7m3cgxyhu" path="res://enemy_2.gd" id="2_vfv5t"]
+[ext_resource type="PackedScene" uid="uid://d4kjhq0idgagt" path="res://rocket_launcher.tscn" id="3_mvvu1"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_867ty"]
+radius = 0.25
+height = 1.8
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_vfv5t"]
+radius = 0.25
+height = 1.8
+
+[node name="Enemy2" unique_id=1299053859 instance=ExtResource("1_867ty")]
+script = ExtResource("2_vfv5t")
+health = 10
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="0" unique_id=47221500]
+shape = SubResource("CapsuleShape3D_867ty")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1" unique_id=102808614]
+mesh = SubResource("CapsuleMesh_vfv5t")
+
+[node name="Cooldown" type="Timer" parent="." index="2" unique_id=1300868307]
+
+[node name="RocketLauncher" parent="." index="3" unique_id=1216868905 instance=ExtResource("3_mvvu1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.70343614, 0, 0)
+
+[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]

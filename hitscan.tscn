@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://bohl8fwolxn8k"]
+
+[ext_resource type="PackedScene" uid="uid://ccn0ftn0o5g2j" path="res://weapon_fire.tscn" id="1_p5xsc"]
+
+[node name="Hitscan" unique_id=1987421562 instance=ExtResource("1_p5xsc")]

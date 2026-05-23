@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bb0l8wf20hrjt"]
+
+[ext_resource type="PackedScene" uid="uid://b7iivfcoo6h6c" path="res://enemy.tscn" id="1_crn85"]
+[ext_resource type="Script" uid="uid://ir3vfm5yuu8o" path="res://enemy_5_segment.gd" id="2_sch0l"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_crn85"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_sch0l"]
+
+[node name="Enemy5Segment" unique_id=1299053859 instance=ExtResource("1_crn85")]
+script = ExtResource("2_sch0l")
+defense = 0.75
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="0" unique_id=1628161334]
+shape = SubResource("BoxShape3D_crn85")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1" unique_id=555811811]
+mesh = SubResource("BoxMesh_sch0l")

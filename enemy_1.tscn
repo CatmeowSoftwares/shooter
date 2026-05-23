@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://dx142vanqasmg"]
+
+[ext_resource type="PackedScene" uid="uid://b7iivfcoo6h6c" path="res://enemy.tscn" id="1_pjquw"]
+[ext_resource type="Script" uid="uid://benqkndjxui1q" path="res://enemy_1.gd" id="2_663o1"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ovk8a"]
+radius = 0.25
+height = 1.5
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gqj32"]
+radius = 0.25
+height = 1.5
+
+[node name="Enemy1" unique_id=1299053859 instance=ExtResource("1_pjquw")]
+script = ExtResource("2_663o1")
+health = 5
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="0" unique_id=1681209490]
+mesh = SubResource("CapsuleMesh_ovk8a")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1" unique_id=1508129618]
+shape = SubResource("CapsuleShape3D_gqj32")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." index="2" unique_id=641966546]
+path_desired_distance = 2.0
+
+[node name="AttackInterval" type="Timer" parent="." index="3" unique_id=1002291348]
+one_shot = true
+
+[node name="RayCast3D" type="RayCast3D" parent="." index="4" unique_id=884266754]
+target_position = Vector3(0, 0, -2)

@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://b4ekbga0ofbd5"]
+
+[ext_resource type="PackedScene" uid="uid://b7iivfcoo6h6c" path="res://enemy.tscn" id="1_2fla0"]
+[ext_resource type="Script" uid="uid://d2or1t66k01w0" path="res://enemy_5_tail.gd" id="2_7u3sk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2fla0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7u3sk"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8586h"]
+
+[node name="Enemy5Tail" unique_id=1299053859 instance=ExtResource("1_2fla0")]
+script = ExtResource("2_7u3sk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="0" unique_id=1719229321]
+shape = SubResource("BoxShape3D_2fla0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1" unique_id=651938841]
+material_override = SubResource("StandardMaterial3D_7u3sk")
+mesh = SubResource("BoxMesh_8586h")

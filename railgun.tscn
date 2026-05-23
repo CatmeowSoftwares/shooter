@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bnipj5kwcdi2j"]
+
+[ext_resource type="PackedScene" uid="uid://s4syikc3n03m" path="res://weapon.tscn" id="1_6fsfk"]
+[ext_resource type="Script" uid="uid://kwiwh5pale0w" path="res://railgun.gd" id="2_xgtvb"]
+[ext_resource type="PackedScene" uid="uid://ceb8rilm4opld" path="res://railgun.glb" id="3_l0kwa"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xgtvb"]
+size = Vector3(2, 2, 2)
+
+[node name="Railgun" unique_id=1216868905 instance=ExtResource("1_6fsfk")]
+script = ExtResource("2_xgtvb")
+
+[node name="railgun" parent="." index="2" unique_id=106990554 instance=ExtResource("3_l0kwa")]
+
+[node name="ShapeCast3D" type="ShapeCast3D" parent="." index="3" unique_id=340495767]
+shape = SubResource("BoxShape3D_xgtvb")
+target_position = Vector3(0, 0, -1000)
+collision_mask = 4
+
+[node name="RayCast3D" type="RayCast3D" parent="." index="4" unique_id=641203183]

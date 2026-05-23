@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://ci3ikftome340"]
+
+[ext_resource type="PackedScene" uid="uid://b7iivfcoo6h6c" path="res://enemy.tscn" id="1_hukrr"]
+[ext_resource type="Script" uid="uid://brecrprxr70l2" path="res://enemy_3.gd" id="2_dxyk6"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_hukrr"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_dxyk6"]
+
+[node name="Enemy3" unique_id=1299053859 instance=ExtResource("1_hukrr")]
+script = ExtResource("2_dxyk6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="0" unique_id=1228203842]
+shape = SubResource("SphereShape3D_hukrr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1" unique_id=1753985002]
+mesh = SubResource("SphereMesh_dxyk6")
+
+[node name="DashTimer" type="Timer" parent="." index="2" unique_id=1488267258]
+autostart = true
+
+[connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]

@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://b7iivfcoo6h6c"]
+
+[ext_resource type="PackedScene" uid="uid://6v0kf5a0hs1s" path="res://character.tscn" id="1_7k104"]
+[ext_resource type="Script" uid="uid://d4hh8mdmqi64j" path="res://enemy.gd" id="2_4gyqm"]
+
+[node name="Enemy" unique_id=1299053859 groups=["Enemy"] instance=ExtResource("1_7k104")]
+collision_layer = 4
+script = ExtResource("2_4gyqm")

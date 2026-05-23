@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://s4syikc3n03m"]
+
+[node name="Weapon" type="Node3D" unique_id=1216868905]
+
+[node name="Cooldown" type="Timer" parent="." unique_id=236961450]
+one_shot = true
+
+[node name="AltCooldown" type="Timer" parent="." unique_id=1843467211]
+one_shot = true

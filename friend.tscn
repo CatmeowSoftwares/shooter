@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bng73ojtynch4"]
+
+[ext_resource type="PackedScene" uid="uid://6v0kf5a0hs1s" path="res://character.tscn" id="1_h35v6"]
+
+[node name="Friend" unique_id=1299053859 instance=ExtResource("1_h35v6")]
+script = null

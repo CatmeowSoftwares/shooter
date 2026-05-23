@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cpg77rwivgpgh"]
+
+[ext_resource type="PackedScene" uid="uid://s4syikc3n03m" path="res://weapon.tscn" id="1_bx8u5"]
+[ext_resource type="Script" uid="uid://bx7pkvmvqp437" path="res://piercer.gd" id="2_0846o"]
+
+[node name="Piercer" unique_id=1216868905 instance=ExtResource("1_bx8u5")]
+script = ExtResource("2_0846o")
+
+[node name="RayCast3D" type="RayCast3D" parent="." index="1" unique_id=470130119]
+target_position = Vector3(0, 0, -1000)
+collision_mask = 4

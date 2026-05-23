@@ -1,0 +1,135 @@
+[gd_scene format=3 uid="uid://d0s2qmqnwr4ve"]
+
+[ext_resource type="Script" uid="uid://bfbgsbjm8eamx" path="res://main_menu.gd" id="1_06t4h"]
+
+[node name="MainMenu" type="Control" unique_id=1552335477]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_06t4h")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1590240851]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Control" type="Control" parent="." unique_id=1560746880]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StartMenu" type="VBoxContainer" parent="Control" unique_id=872326]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -186.5
+offset_top = -50.5
+offset_right = 186.5
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control/StartMenu" unique_id=805924830]
+layout_mode = 2
+text = "My Game Something"
+horizontal_alignment = 1
+
+[node name="PlayButton" type="Button" parent="Control/StartMenu" unique_id=2040100161]
+layout_mode = 2
+text = "Play"
+
+[node name="Timer" type="Timer" parent="Control/StartMenu/PlayButton" unique_id=2118386745]
+one_shot = true
+
+[node name="SettingsButton" type="Button" parent="Control/StartMenu" unique_id=1687358859]
+layout_mode = 2
+text = "Settings"
+
+[node name="ExitButton" type="Button" parent="Control/StartMenu" unique_id=2110239360]
+layout_mode = 2
+text = "Exit"
+
+[node name="DifficultySelector" type="VBoxContainer" parent="Control" unique_id=2133300179]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -186.5
+offset_top = -64.0
+offset_right = 186.5
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control/DifficultySelector" unique_id=2005524162]
+layout_mode = 2
+text = "Select Difficulty"
+horizontal_alignment = 1
+
+[node name="EasyButton" type="Button" parent="Control/DifficultySelector" unique_id=124672748]
+layout_mode = 2
+text = "Easy"
+
+[node name="MediumButton" type="Button" parent="Control/DifficultySelector" unique_id=952831685]
+layout_mode = 2
+text = "Medium"
+
+[node name="HardButton" type="Button" parent="Control/DifficultySelector" unique_id=581399881]
+layout_mode = 2
+text = "Hard"
+
+[node name="GameModeSelector" type="VBoxContainer" parent="Control" unique_id=847390505]
+visible = false
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -186.5
+offset_top = -64.0
+offset_right = 186.5
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control/GameModeSelector" unique_id=1153821361]
+layout_mode = 2
+text = "Select Game Mode"
+horizontal_alignment = 1
+
+[node name="StoryModeButton" type="Button" parent="Control/GameModeSelector" unique_id=1617637110]
+layout_mode = 2
+disabled = true
+text = "Story"
+
+[node name="EndlessModeButton" type="Button" parent="Control/GameModeSelector" unique_id=2111205661]
+layout_mode = 2
+text = "Endless"
+
+[node name="SandboxModeButton" type="Button" parent="Control/GameModeSelector" unique_id=388691447]
+layout_mode = 2
+disabled = true
+text = "Sandbox"
+
+[connection signal="button_down" from="Control/StartMenu/PlayButton" to="." method="_on_play_button_button_down"]
+[connection signal="button_up" from="Control/StartMenu/PlayButton" to="." method="_on_play_button_button_up"]
+[connection signal="pressed" from="Control/StartMenu/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Control/StartMenu/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="Control/DifficultySelector/EasyButton" to="." method="_on_easy_button_pressed"]
+[connection signal="pressed" from="Control/DifficultySelector/MediumButton" to="." method="_on_medium_button_pressed"]
+[connection signal="pressed" from="Control/DifficultySelector/HardButton" to="." method="_on_hard_button_pressed"]
+[connection signal="pressed" from="Control/GameModeSelector/StoryModeButton" to="." method="_on_story_mode_button_pressed"]
+[connection signal="pressed" from="Control/GameModeSelector/EndlessModeButton" to="." method="_on_endless_mode_button_pressed"]
+[connection signal="pressed" from="Control/GameModeSelector/SandboxModeButton" to="." method="_on_sandbox_mode_button_pressed"]

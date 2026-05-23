@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://crkpkv63jxoy2"]
+
+[ext_resource type="PackedScene" uid="uid://b7iivfcoo6h6c" path="res://enemy.tscn" id="1_eb2ka"]
+[ext_resource type="Script" uid="uid://co5sc42c7yq7t" path="res://enemy_5.gd" id="2_jynl6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jynl6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jynl6"]
+albedo_color = Color(1, 0, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_dxotf"]
+
+[node name="Enemy5" unique_id=1299053859 instance=ExtResource("1_eb2ka")]
+script = ExtResource("2_jynl6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="0" unique_id=762106407]
+shape = SubResource("BoxShape3D_jynl6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1" unique_id=1264834985]
+material_override = SubResource("StandardMaterial3D_jynl6")
+mesh = SubResource("BoxMesh_dxotf")
+
+[node name="RayCast3D" type="RayCast3D" parent="." index="2" unique_id=770691877]
+target_position = Vector3(0, 0, -2)

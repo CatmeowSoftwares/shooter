@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://dxuatmxk1g3h4"]
+
+[ext_resource type="PackedScene" uid="uid://bng73ojtynch4" path="res://friend.tscn" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://42aegvi3rxsf" path="res://player.gd" id="2_onrkg"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_onrkg"]
+radius = 0.25
+height = 1.8
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_onrkg"]
+radius = 0.25
+height = 1.8
+
+[node name="Player" unique_id=1299053859 instance=ExtResource("1_4flbx")]
+collision_layer = 2
+script = ExtResource("2_onrkg")
+health = 999
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="0" unique_id=738397638]
+shape = SubResource("CapsuleShape3D_onrkg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1" unique_id=1846789004]
+mesh = SubResource("CapsuleMesh_onrkg")
+
+[node name="Label" type="Label" parent="." index="2" unique_id=1732741242]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="SlideTimer" type="Timer" parent="." index="3" unique_id=765801823]
+process_callback = 0
+one_shot = true
+
+[node name="Head" type="Node3D" parent="." index="4" unique_id=1148135530]
+
+[node name="Camera3D" type="Camera3D" parent="Head" index="0" unique_id=134492636]
+
+[node name="Hand" type="Node3D" parent="Head" index="1" unique_id=1264059128]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.28259033, -0.1801902, 0)
+
+[node name="ProgressBar" type="ProgressBar" parent="." index="5" unique_id=1942998196]
+offset_right = 138.0
+offset_bottom = 27.0
+
+[connection signal="timeout" from="SlideTimer" to="." method="_on_slide_timer_timeout"]

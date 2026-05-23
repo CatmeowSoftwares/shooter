@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bliw0nb4auxri"]
+
+[ext_resource type="Script" uid="uid://dg1fh7nc0uces" path="res://dropped_weapon.gd" id="1_7wjtg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w2n7o"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xhf2y"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[node name="DroppedWeapon" type="RigidBody3D" unique_id=692692160]
+collision_layer = 0
+script = ExtResource("1_7wjtg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=313712743]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04748535, -0.04989624, 0.0012207031)
+shape = SubResource("BoxShape3D_w2n7o")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=8092821]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1922967850]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.008911133, 0.02142334, -0.005065918)
+shape = SubResource("BoxShape3D_xhf2y")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dusfahxsv8kpt"]
+
+[ext_resource type="Script" uid="uid://c8882qtdtwhvq" path="res://area_effect.gd" id="1_8btft"]
+
+[node name="AreaEffect" type="Node3D" unique_id=1695898031]
+script = ExtResource("1_8btft")

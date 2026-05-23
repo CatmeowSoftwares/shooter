@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://d4kjhq0idgagt"]
+
+[ext_resource type="PackedScene" uid="uid://s4syikc3n03m" path="res://weapon.tscn" id="1_vfvja"]
+[ext_resource type="Script" uid="uid://b1dr1nbn11rwo" path="res://rocket_launcher.gd" id="2_f4skl"]
+[ext_resource type="PackedScene" uid="uid://ck7pmqmgvn5pb" path="res://rocket_launcher.glb" id="3_c2pqj"]
+
+[node name="RocketLauncher" unique_id=1216868905 instance=ExtResource("1_vfvja")]
+script = ExtResource("2_f4skl")
+
+[node name="Marker3D" type="Marker3D" parent="." index="0" unique_id=1404608201]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.34446013)
+
+[node name="rocket_launcher" parent="." index="1" unique_id=1194488465 instance=ExtResource("3_c2pqj")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="RayCast3D" type="RayCast3D" parent="." index="3" unique_id=2105184765]
+target_position = Vector3(0, 0, -1000)
+collision_mask = 4
+
+[node name="AltCooldown" parent="." index="4" unique_id=1843467211]
+wait_time = 2.0

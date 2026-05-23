@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://beon7rk2hh6u5"]
+
+[ext_resource type="PackedScene" uid="uid://s4syikc3n03m" path="res://weapon.tscn" id="1_08c3m"]
+[ext_resource type="Script" uid="uid://kpaplynyrdrl" path="res://pistol.gd" id="2_bttkv"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_08c3m"]
+size = Vector3(0.1, 0.1, 0.5)
+
+[node name="Pistol" unique_id=1216868905 instance=ExtResource("1_08c3m")]
+script = ExtResource("2_bttkv")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="0" unique_id=1852521300]
+mesh = SubResource("BoxMesh_08c3m")
+
+[node name="RayCast3D" type="RayCast3D" parent="." index="1" unique_id=1827034018]
+target_position = Vector3(0, 0, -1000)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="2" unique_id=1782589442]
+light_color = Color(1, 0.69803923, 0, 1)
+shadow_enabled = true
