@@ -1,5 +1,8 @@
-[gd_scene format=3 uid="uid://bohl8fwolxn8k"]
+[gd_scene format=3 uid="uid://c6ls04rqunk4o"]
 
-[ext_resource type="PackedScene" uid="uid://ccn0ftn0o5g2j" path="res://weapon_fire.tscn" id="1_p5xsc"]
+[ext_resource type="Script" uid="uid://dro3k3wp8hvl4" path="res://hitscan.gd" id="1_p5xsc"]
 
-[node name="Hitscan" unique_id=1987421562 instance=ExtResource("1_p5xsc")]
+[node name="Hitscan" type="RayCast3D" unique_id=1747063881]
+target_position = Vector3(0, 0, -1000)
+collision_mask = 15
+script = ExtResource("1_p5xsc")

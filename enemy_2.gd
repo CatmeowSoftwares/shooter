@@ -12,7 +12,9 @@ func _ready() -> void:
 			cooldown.wait_time = 0.5
 	cooldown.start()
 func _physics_process(delta: float) -> void:
-	rocket_launcher.look_at(target.global_position)
+	#* rocket_launcher.global_position.distance_to(target.global_position)
+	rocket_launcher.look_at((target.global_position + target.velocity) )
+
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	rotation.y = atan2(-target.position.x, -target.position.z)

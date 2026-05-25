@@ -12,9 +12,12 @@ script = ExtResource("2_bttkv")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." index="0" unique_id=1852521300]
 mesh = SubResource("BoxMesh_08c3m")
 
-[node name="RayCast3D" type="RayCast3D" parent="." index="1" unique_id=1827034018]
-target_position = Vector3(0, 0, -1000)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="." index="2" unique_id=1782589442]
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="1" unique_id=1782589442]
 light_color = Color(1, 0.69803923, 0, 1)
 shadow_enabled = true
+
+[node name="Cooldown" parent="." index="2" unique_id=236961450]
+wait_time = 0.001
+
+[node name="Marker3D" type="Marker3D" parent="." index="4" unique_id=488082094]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.2696812)

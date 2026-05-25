@@ -1,8 +1,8 @@
-[gd_scene format=3 uid="uid://i2vgut0m1lyo"]
+[gd_scene format=3 uid="uid://bespfoi5r0n4d"]
 
 [ext_resource type="PackedScene" uid="uid://bcd62hhx0yu1l" path="res://projectile.tscn" id="1_fj03e"]
 [ext_resource type="PackedScene" uid="uid://ddgiqjccfcdwx" path="res://rocket.glb" id="2_5gt1y"]
-[ext_resource type="Script" uid="uid://bvw5gryy4w7vj" path="res://rocket.gd" id="2_r2l15"]
+[ext_resource type="Script" uid="uid://c67ixnpuha111" path="res://rocket.gd" id="2_r2l15"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_5gt1y"]
 height = 0.27
@@ -12,39 +12,25 @@ radius = 0.06
 height = 0.25
 radius = 0.05
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_r2l15"]
-height = 0.25
-radius = 0.05
-
-[node name="Rocket" unique_id=1987421562 instance=ExtResource("1_fj03e")]
+[node name="Rocket" type="CharacterBody3D" unique_id=410639938]
+collision_layer = 8
+collision_mask = 0
 script = ExtResource("2_r2l15")
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="." index="0" unique_id=1095218522]
-collision_layer = 8
+[node name="Area3D" type="Area3D" parent="." unique_id=1206778314]
+collision_layer = 0
 collision_mask = 7
-motion_mode = 1
 
-[node name="Area3D" type="Area3D" parent="CharacterBody3D" index="0" unique_id=157987323]
-collision_layer = 8
-collision_mask = 15
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D/Area3D" index="0" unique_id=1101305686]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1837459762]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
 shape = SubResource("CylinderShape3D_5gt1y")
 
-[node name="ShapeCast3D" type="ShapeCast3D" parent="CharacterBody3D" index="1" unique_id=522341009]
+[node name="rocket" parent="." unique_id=203604109 instance=ExtResource("2_5gt1y")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1663215774]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
 shape = SubResource("CylinderShape3D_tpb7v")
-target_position = Vector3(0, -0.1, 0)
-collision_mask = 15
 
-[node name="rocket" parent="CharacterBody3D" index="2" unique_id=1986085265 instance=ExtResource("2_5gt1y")]
+[node name="Projectile" parent="." unique_id=1987421562 instance=ExtResource("1_fj03e")]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" index="3" unique_id=1297810576]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
-shape = SubResource("CylinderShape3D_r2l15")
-
-[node name="Lifetime" parent="." index="1" unique_id=859693617]
-wait_time = 1.0
-
-[connection signal="body_entered" from="CharacterBody3D/Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

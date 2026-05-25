@@ -8,19 +8,20 @@ var enemy_count: int
 @onready var enemy_1: CharacterBody3D = $Enemy1
 
 func _ready():
+	Engine.time_scale = 0.5
 	var pistol = preload("uid://beon7rk2hh6u5").instantiate()
 	var rocket_launcher = preload("uid://d4kjhq0idgagt").instantiate()
 	var piercer = preload("uid://cpg77rwivgpgh").instantiate()
 	var railgun = preload("uid://bnipj5kwcdi2j").instantiate()
-	#spawn_weapon(pistol)
+	spawn_weapon(pistol)
 	#spawn_weapon(rocket_launcher)
-	spawn_weapon(railgun)
+	#spawn_weapon(railgun)
 	#spawn_weapon(piercer)
 	start_next_wave()
-	var a= preload("uid://crkpkv63jxoy2").instantiate()
-	a.position = Vector3(2, 0, 2)
-	a.rotation_degrees.x = -30
-	add_child(a)
+	#var a= preload("uid://crkpkv63jxoy2").instantiate()
+	#a.position = Vector3(2, 0, 2)
+	#a.rotation_degrees.x = -30
+	#add_child(a)
 func spawn_weapon(weapon: Weapon):
 	var dropped_weapon = preload("uid://bliw0nb4auxri").instantiate()
 	dropped_weapon.weapon = weapon
@@ -41,7 +42,7 @@ func start_next_wave():
 func spawn_enemies():
 	var enemies := [
 		preload("uid://dx142vanqasmg"),
-		#preload("uid://iyblt7u7uoca"),
+		preload("uid://iyblt7u7uoca"),
 		preload("uid://ci3ikftome340"),
 		#preload("uid://crkpkv63jxoy2"),
 		

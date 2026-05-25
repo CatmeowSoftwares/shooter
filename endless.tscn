@@ -2,7 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://cm621mb08nyu8" path="res://game.tscn" id="1_mjc6l"]
 [ext_resource type="Script" uid="uid://3qbuthp88s8w" path="res://endless.gd" id="2_bmpbx"]
-[ext_resource type="PackedScene" uid="uid://i2vgut0m1lyo" path="res://rocket.tscn" id="6_4nffr"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_xdkf5"]
 size = Vector3(100, 0.5, 100)
@@ -25,6 +24,9 @@ size = Vector3(100, 50, 0.1)
 data = PackedVector3Array(-0.049999997, 25, 10, 0.049999997, 25, 10, -0.049999997, -25, 10, 0.049999997, 25, 10, 0.049999997, -25, 10, -0.049999997, -25, 10, 0.049999997, 25, -10, -0.049999997, 25, -10, 0.049999997, -25, -10, -0.049999997, 25, -10, -0.049999997, -25, -10, 0.049999997, -25, -10, 0.049999997, 25, 10, 0.049999997, 25, -10, 0.049999997, -25, 10, 0.049999997, 25, -10, 0.049999997, -25, -10, 0.049999997, -25, 10, -0.049999997, 25, -10, -0.049999997, 25, 10, -0.049999997, -25, -10, -0.049999997, 25, 10, -0.049999997, -25, 10, -0.049999997, -25, -10, 0.049999997, 25, 10, -0.049999997, 25, 10, 0.049999997, 25, -10, -0.049999997, 25, 10, -0.049999997, 25, -10, 0.049999997, 25, -10, -0.049999997, -25, 10, 0.049999997, -25, 10, -0.049999997, -25, -10, 0.049999997, -25, 10, 0.049999997, -25, -10, -0.049999997, -25, -10)
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_ldeew"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_bmpbx"]
+viewport_path = NodePath("SubViewport")
 
 [node name="Endless" unique_id=1299116644 instance=ExtResource("1_mjc6l")]
 script = ExtResource("2_bmpbx")
@@ -69,12 +71,20 @@ collision_mask = 15
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Void" index="0" unique_id=1035789361]
 shape = SubResource("WorldBoundaryShape3D_ldeew")
 
-[node name="Rocket" parent="." index="7" unique_id=1987421562 instance=ExtResource("6_4nffr")]
+[node name="SubViewport" type="SubViewport" parent="." index="7" unique_id=113506716]
 
-[node name="Camera3D" type="Camera3D" parent="." index="8" unique_id=1781111011]
-transform = Transform3D(1, 0, 0, 0, 0.83154714, 0.55545413, 0, -0.55545413, 0.83154714, 0, 5.60732, 6.8844852)
+[node name="Camera3D" type="Camera3D" parent="SubViewport" index="0" unique_id=1781111011]
+transform = Transform3D(1, 0, 0, 0, 0.969132, 0.2465424, 0, -0.2465424, 0.969132, 0, -1.6359682, 11.722834)
+current = true
 
-[node name="Label3D" type="Label3D" parent="." index="9" unique_id=2114254359]
+[node name="Label3D" type="Label3D" parent="." index="8" unique_id=2114254359]
 text = "Wave 0"
+
+[node name="TextureRect" type="TextureRect" parent="." index="9" unique_id=1307460687]
+offset_left = 642.0
+offset_top = 5.0
+offset_right = 1154.0
+offset_bottom = 517.0
+texture = SubResource("ViewportTexture_bmpbx")
 
 [connection signal="body_entered" from="Void" to="." method="_on_void_body_entered"]

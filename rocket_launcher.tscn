@@ -13,9 +13,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.34446013)
 [node name="rocket_launcher" parent="." index="1" unique_id=1194488465 instance=ExtResource("3_c2pqj")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
-[node name="RayCast3D" type="RayCast3D" parent="." index="3" unique_id=2105184765]
-target_position = Vector3(0, 0, -1000)
-collision_mask = 4
-
-[node name="AltCooldown" parent="." index="4" unique_id=1843467211]
+[node name="AltCooldown" parent="." index="3" unique_id=1843467211]
 wait_time = 2.0

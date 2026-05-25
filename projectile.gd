@@ -1,4 +1,5 @@
 class_name Projectile extends WeaponFire
+signal hit
 @onready var lifetime: Timer = $Lifetime
 
 
