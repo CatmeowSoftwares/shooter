@@ -44,35 +44,8 @@ func _physics_process(delta: float) -> void:
 			crouch()
 	elif Input.is_action_just_released("crouch"):
 		uncrouch()
-	if current_weapon != null:
-		match current_weapon.fire_type:
-			Weapon.FireType.CLICK:
-				if Input.is_action_just_pressed("left_click"):
-					if current_weapon.cooldown.is_stopped():
-						current_weapon.use(self)
-						current_weapon.cooldown.start()
-			Weapon.FireType.HOLD:
-				if Input.is_action_just_pressed("left_click"):
-					current_weapon.cooldown.start()
-				elif Input.is_action_just_released("left_click"):
-					if current_weapon.cooldown.is_stopped(): 
-						current_weapon.use(self)
-					current_weapon.cooldown.stop()
-						
+	
 
-		match current_weapon.alt_fire_type:
-			Weapon.AltFireType.CLICK:
-				if Input.is_action_just_pressed("right_click"):
-					if current_weapon.alt_cooldown.is_stopped(): 
-						current_weapon.alt_use(self)
-						current_weapon.alt_cooldown.start()
-			Weapon.AltFireType.HOLD:
-				if Input.is_action_just_pressed("right_click"):
-					current_weapon.alt_cooldown.start()
-				elif Input.is_action_just_released("right_click"):
-					if current_weapon.alt_cooldown.is_stopped(): 
-						current_weapon.alt_use(self)
-					current_weapon.alt_cooldown.stop()
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		jump()
@@ -106,7 +79,35 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 	label.text = str(get_horizontal_speed())
-
+	
+	if current_weapon:
+		match current_weapon.fire_type:
+			Weapon.FireType.CLICK:
+				if Input.is_action_just_pressed("left_click"):
+					if current_weapon.cooldown.is_stopped():
+						current_weapon.use(self)
+						current_weapon.cooldown.start()
+			Weapon.FireType.HOLD:
+				if Input.is_action_just_pressed("left_click"):
+					current_weapon.cooldown.start()
+				elif Input.is_action_just_released("left_click"):
+					if current_weapon.cooldown.is_stopped(): 
+						current_weapon.use(self)
+					current_weapon.cooldown.stop()
+						
+		match current_weapon.alt_fire_type:
+			Weapon.AltFireType.CLICK:
+				if Input.is_action_just_pressed("right_click"):
+					if current_weapon.alt_cooldown.is_stopped(): 
+						current_weapon.alt_use(self)
+						current_weapon.alt_cooldown.start()
+			Weapon.AltFireType.HOLD:
+				if Input.is_action_just_pressed("right_click"):
+					current_weapon.alt_cooldown.start()
+				elif Input.is_action_just_released("right_click"):
+					if current_weapon.alt_cooldown.is_stopped(): 
+						current_weapon.alt_use(self)
+					current_weapon.alt_cooldown.stop()
 
 func crouch():
 	if  is_crouching:
