@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dt0t7psxqojco" path="res://game.gd" id="1_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://dxuatmxk1g3h4" path="res://player.tscn" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://dysmn6grx4bkf" path="res://cheat_sheet.gd" id="3_feb5d"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ig7tw"]
 
@@ -20,3 +21,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0689479, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1693555306]
 environment = SubResource("Environment_h2yge")
+
+[node name="Objects" type="Node3D" parent="." unique_id=506380933]
+
+[node name="CheatSheet" type="Control" parent="." unique_id=78091402]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_feb5d")
+
+[node name="Label" type="Label" parent="CheatSheet" unique_id=1464973789]
+layout_mode = 0
+offset_left = 344.0
+offset_top = 261.0
+offset_right = 809.0
+offset_bottom = 284.0
+text = "This cheat sheet is open or something something something"
